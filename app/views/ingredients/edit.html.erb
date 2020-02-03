@@ -1,11 +1,17 @@
 <h1>Editing Ingredients</h1>
 
 
-<%= form_for @ingredient, :url => {:action => "update", :id => @ingredient} do |f| %>
-  <p>Ingredient: <%= f.text_field 'name' %></p>
-  <p>Weight: <%= f.text_field 'weight' %></p>
+<%#= form_for @ingredient, :url => {:action => "update", :id => @ingredient} do |f| %>
+  <%= form_with(url: @ingredient, method: "patch") do %>
+  <p>Ingredient: <%= text_field :ingredient, :name %></p>
+  <p>Weight: <%= text_field :ingredient, :weight %></p>
 
-  <%= f.submit "Save Changes" %>
+  <%= submit_tag "Fire!" %>
+
+<!--  <p>Ingredient: <%#= f.text_field 'name' %></p>-->
+<!--  <p>Weight: <%#= f.text_field 'weight' %></p>-->
+
+  <%#= f.submit "Save Changes" %>
 
 <% end %>
 

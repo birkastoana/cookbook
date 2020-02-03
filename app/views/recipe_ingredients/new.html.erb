@@ -32,12 +32,6 @@
 <% end %>
 
 
+<h5><%= link_to 'Ingredients', ingredients_path %></h5>
+<%= link_to 'Back to Recipe', recipe_path(@recipe_id) %>
 
-<%= link_to 'Back to Recipe', edit_recipe_path(@recipe_id) %>
-
-<%# form_tag action: :create, controller: :recipe_ingredients do %>
-<!--  <p> <label for="recipe_ingredient_ingredient_id">Ingredient</label><%#= text_field :recipe_ingredients, :recipe_id %></p>-->
-<!--  <p> <label for="recipe_ingredient_quantity">Quantity</label><%#= text_field :recipe_ingredients, :quantitiy %></p>-->
-<%#= recipe_id = id %>
-<%#= submit_tag "Add Ingredient" %>
-<%# end -%>

@@ -1,0 +1,21 @@
+<table>
+  <thead>
+  <tr>
+    <td> Ingredient </td>
+    <td> Quantity </td>
+    <td> Weight</td>
+  </tr>
+  </thead>
+  <tbody>
+  <% @recipe_ingredients.each do |ri| %>
+    <% @ingredient = @ingredients.find(ri.ingredient_id) %>
+    <tr>
+      <td> <%= @ingredient[:name] %></td>
+      <td> <%= ri.quantity %></td>
+      <td> <%= @ingredient[:weight] %></td>
+    </tr>
+  <% end %>
+
+  </tbody>
+
+</table>
