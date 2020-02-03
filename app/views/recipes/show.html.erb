@@ -1,0 +1,25 @@
+<% if @recipe.errors.any? %>
+<p> Error while saving this item: </p>
+  <% @recipe.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+
+<% end %>
+
+<h1><%= @recipe.title %></h1>
+<p><strong>
+  <%= @recipe.instructions %>
+</strong></p>
+
+<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+<%= link_to 'Destroy', {:action => 'delete', :id => @recipe.id}, :data => {:confirm => "Are you sure?"} %>
+
+<h2> Ingredients: </h2>
+<%= render "recipe_ingredients/show" %>
+
+
+<%= link_to 'Edit Ingredients', controller: "recipe_ingredients", action: "new", recipe:@recipe%>
+
+<br><br>
+
+<h3><%= link_to 'Back', recipes_path %></h3>

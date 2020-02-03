@@ -1,0 +1,14 @@
+<h1>Editing Recipe</h1>
+
+<%= form_for @recipe, :url => {:action => "update", :id => @recipe} do |f| %>
+
+  <p> Title: <%= f.text_field 'title' %></p>
+  <p> Instruction: <%= f.text_field 'instructions' %></p>
+
+  <%= f.submit "Save Changes" %>
+<% end %>
+
+
+<%= link_to 'Edit Ingredients', controller: "recipe_ingredients", action: "new", recipe:@recipe%>
+<br>
+<%= link_to 'Back', :back %>

@@ -1,0 +1,43 @@
+<table>
+  <thead>
+  <tr>
+    <td> Ingredient </td>
+    <td> Quantity </td>
+    <td> Weight</td>
+  </tr>
+  </thead>
+  <tbody>
+  <% @recipe_ingredients.each do |ri| %>
+  <% @ingredient = @ingredients.find(ri.ingredient_id) %>
+    <tr>
+      <td> <%= @ingredient[:name] %></td>
+      <td> <%= ri.quantity %></td>
+      <td> <%= @ingredient[:weight] %></td>
+      <td> <%= link_to 'Delete', {:action => 'delete', id: ri.id, recipe: @recipe }  %></td>
+    </tr>
+  <% end %>
+
+  </tbody>
+
+</table>
+
+<%= form_for @recipe_ingredient , url: {:action => 'create', :recipe_id => @recipe} do %>
+  <p><label for="recipe_ingredient">Ingredient</label>
+  <%= collection_select(:recipe_ingredient, :ingredient_id,Ingredient.all, :id, :name) %>
+  </p>
+  <p><label for="recipe_ingredient_quantity">Quantity</label>
+  <%= text_field :recipe_ingredient, :quantity %></p>
+
+  <%= submit_tag "Add Ingredient" %>
+<% end %>
+
+
+
+<%= link_to 'Back to Recipe', edit_recipe_path(@recipe_id) %>
+
+<%# form_tag action: :create, controller: :recipe_ingredients do %>
+<!--  <p> <label for="recipe_ingredient_ingredient_id">Ingredient</label><%#= text_field :recipe_ingredients, :recipe_id %></p>-->
+<!--  <p> <label for="recipe_ingredient_quantity">Quantity</label><%#= text_field :recipe_ingredients, :quantitiy %></p>-->
+<%#= recipe_id = id %>
+<%#= submit_tag "Add Ingredient" %>
+<%# end -%>
