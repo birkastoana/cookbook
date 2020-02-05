@@ -5,6 +5,7 @@ class RecipeIngredientsController < ApplicationController
 
   def new
 
+
     @recipe = Recipe.find(params[:recipe])
     @recipe_ingredients = @recipe.recipe_ingredients.all
     @ingredients = Ingredient.all
