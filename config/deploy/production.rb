@@ -44,7 +44,7 @@ namespace :deploy do
   end
   before :linked_files, :set_database_yml do
    on roles(:app), in: :sequence, wait: 10 do
-    unless test("[ -f #{shared_path}/config/master.key ]")
+    unless test("[ -f #{shared_path}/config/database.yml ]")
      upload! 'config/database.yml', "#{shared_path}/config/database.yml"
     end
    end
