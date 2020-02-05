@@ -6,7 +6,7 @@
 # server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
- server '192.168.56.102', user: 'deploy', roles: %w{app db web}
+ server '192.168.56.101', user: 'deploy', roles: %w{app db web}
 
 
 
@@ -44,9 +44,9 @@ namespace :deploy do
   end
   before :linked_files, :set_database_yml do
    on roles(:app), in: :sequence, wait: 10 do
-    unless test("[ -f #{shared_path}/config/database.yml ]")
+    #unless test("[ -f #{shared_path}/config/database.yml ]")
      upload! 'config/database.yml', "#{shared_path}/config/database.yml"
-    end
+    #end
    end
   end
  end
