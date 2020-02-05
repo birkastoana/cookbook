@@ -51,6 +51,7 @@ namespace :deploy do
   end
  end
 end
+#added some comment
 
 
 # Custom SSH Options
